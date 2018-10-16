@@ -11,13 +11,13 @@ import 'package:path/path.dart' as p;
 import 'package:source_span/source_span.dart';
 import 'package:yaml/yaml.dart';
 
-import 'package:test_core/src/backend/group.dart';
-import 'package:test_core/src/backend/invoker.dart';
-import 'package:test_core/src/backend/runtime.dart';
-import 'package:test_core/src/runner/hack_register_platform.dart';
-import 'package:test_core/src/runner/platform.dart';
-import 'package:test_core/src/runner/runner_suite.dart';
-import 'package:test_core/src/runner/suite.dart';
+import 'package:test_core/src/backend/group.dart'; // ignore: implementation_imports
+import 'package:test_core/src/backend/invoker.dart'; // ignore: implementation_imports
+import 'package:test_core/src/backend/runtime.dart'; // ignore: implementation_imports
+import 'package:test_core/src/runner/hack_register_platform.dart'; // ignore: implementation_imports
+import 'package:test_core/src/runner/platform.dart'; // ignore: implementation_imports
+import 'package:test_core/src/runner/runner_suite.dart'; // ignore: implementation_imports
+import 'package:test_core/src/runner/suite.dart'; // ignore: implementation_imports
 
 import '../util/io.dart';
 import 'browser/platform.dart';

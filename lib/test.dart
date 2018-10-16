@@ -11,14 +11,14 @@ import 'package:test/src/runner/reporter/expanded.dart';
 export 'package:matcher/matcher.dart';
 import 'package:path/path.dart' as p;
 
-import 'package:test_core/src/backend/invoker.dart';
-import 'package:test_core/src/backend/runtime.dart';
-import 'package:test_core/src/backend/suite_platform.dart';
-import 'package:test_core/src/frontend/timeout.dart';
-import 'package:test_core/src/backend/declarer.dart';
-import 'package:test_core/src/runner/runner_suite.dart';
-import 'package:test_core/src/runner/suite.dart';
-import 'package:test_core/src/utils.dart';
+import 'package:test_core/src/backend/invoker.dart'; // ignore: implementation_imports
+import 'package:test_core/src/backend/runtime.dart'; // ignore: implementation_imports
+import 'package:test_core/src/backend/suite_platform.dart'; // ignore: implementation_imports
+import 'package:test_core/src/frontend/timeout.dart'; // ignore: implementation_imports
+import 'package:test_core/src/backend/declarer.dart'; // ignore: implementation_imports
+import 'package:test_core/src/runner/runner_suite.dart'; // ignore: implementation_imports
+import 'package:test_core/src/runner/suite.dart'; // ignore: implementation_imports
+import 'package:test_core/src/utils.dart'; // ignore: implementation_imports
 
 // Hide implementations which don't support being run directly.
 export 'package:test_core/test.dart' hide test, group, setUp, setUpAll, tearDown, tearDownAll;

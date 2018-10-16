@@ -15,12 +15,12 @@ import 'package:path/path.dart' as p;
 import 'package:stream_channel/stream_channel.dart';
 import 'package:yaml/yaml.dart';
 
-import 'package:test_core/src/backend/runtime.dart';
-import 'package:test_core/src/backend/suite_platform.dart';
-import 'package:test_core/src/util/stack_trace_mapper.dart';
-import 'package:test_core/src/runner/platform.dart';
-import 'package:test_core/src/runner/runner_suite.dart';
-import 'package:test_core/src/runner/suite.dart';
+import 'package:test_core/src/backend/runtime.dart'; // ignore: implementation_imports
+import 'package:test_core/src/backend/suite_platform.dart'; // ignore: implementation_imports
+import 'package:test_core/src/util/stack_trace_mapper.dart'; // ignore: implementation_imports
+import 'package:test_core/src/runner/platform.dart'; // ignore: implementation_imports
+import 'package:test_core/src/runner/runner_suite.dart'; // ignore: implementation_imports
+import 'package:test_core/src/runner/suite.dart'; // ignore: implementation_imports
 
 import '../../util/io.dart';
 import '../../util/stack_trace_mapper.dart';
