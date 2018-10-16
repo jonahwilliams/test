@@ -26,7 +26,7 @@ import 'environment.dart';
 /// A platform plugin can be registered by passing it to [new Loader]'s
 /// `plugins` parameter.
 abstract class PlatformPlugin {
-    /// Loads and establishes a connection with the test file at [path] using
+  /// Loads and establishes a connection with the test file at [path] using
   /// [platform].
   ///
   /// This returns a channel that's connected to a remote client. The client
@@ -43,7 +43,7 @@ abstract class PlatformPlugin {
   /// associated with this plugin in [new Loader]'s `plugins` parameter.
   // TODO(grouma) - Remove this method from the API as no platforms implement
   // it.
-  StreamChannel<dynamic> loadChannel(String testPath, SuitePlatform platform);
+  StreamChannel loadChannel(String testPath, SuitePlatform platform);
 
   /// Loads the runner suite for the test file at [path] using [platform], with
   /// [suiteConfig] encoding the suite-specific configuration.
