@@ -26,6 +26,25 @@ import 'environment.dart';
 /// A platform plugin can be registered by passing it to [new Loader]'s
 /// `plugins` parameter.
 abstract class PlatformPlugin {
+    /// Loads and establishes a connection with the test file at [path] using
+  /// [platform].
+  ///
+  /// This returns a channel that's connected to a remote client. The client
+  /// must connect it to a channel returned by [serializeGroup]. The default
+  /// implementation of [load] will take care of wrapping it up in a
+  /// [RunnerSuite] and running the tests when necessary.
+  ///
+  /// The returned channel may emit exceptions, indicating that the suite failed
+  /// to load or crashed later on. If the channel is closed by the caller, that
+  /// indicates that the suite is no longer needed and its resources may be
+  /// released.
+  ///
+  /// The `platform.platform` is guaranteed to be one of the platforms
+  /// associated with this plugin in [new Loader]'s `plugins` parameter.
+  // TODO(grouma) - Remove this method from the API as no platforms implement
+  // it.
+  StreamChannel<dynamic> loadChannel(String testPath, SuitePlatform platform);
+
   /// Loads the runner suite for the test file at [path] using [platform], with
   /// [suiteConfig] encoding the suite-specific configuration.
   ///
@@ -39,8 +58,6 @@ abstract class PlatformPlugin {
   /// pass the opaque [message] parameter to the [deserializeSuite] call.
   Future<RunnerSuite> load(String path, SuitePlatform platform,
       SuiteConfiguration suiteConfig, Object message);
-
-  StreamChannel<dynamic> loadChannel(String testPath, SuitePlatform platform);
 
   Future closeEphemeral() async {}
 

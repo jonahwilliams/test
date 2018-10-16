@@ -17,7 +17,8 @@ import 'runner.dart';
 import 'runner/application_exception.dart';
 import 'runner/configuration.dart';
 import 'runner/version.dart';
-import 'package:test_core/src/util/exit_codes.dart' as exit_codes;
+
+import 'util/exit_codes.dart' as exit_codes;
 import 'util/io.dart';
 import 'utils.dart';
 

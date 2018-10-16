@@ -8,7 +8,8 @@ import 'dart:io';
 import 'package:path/path.dart' as p;
 
 import 'package:test_core/src/backend/runtime.dart';
-import 'package:test_core/src/util/exit_codes.dart' as exit_codes;
+
+import 'package:test/src/util/exit_codes.dart' as exit_codes;
 import '../application_exception.dart';
 import '../executable_settings.dart';
 import '../../util/io.dart';

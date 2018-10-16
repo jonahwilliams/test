@@ -5,19 +5,10 @@
 import 'dart:async';
 
 import 'package:meta/meta.dart';
-//import 'package:path/path.dart' as p;
 
 import 'src/backend/declarer.dart';
 import 'src/backend/invoker.dart';
-//import 'src/backend/runtime.dart';
-//import 'src/backend/suite_platform.dart';
 import 'src/frontend/timeout.dart';
-// import 'src/runner/configuration/suite.dart';
-// import 'src/runner/engine.dart';
-// import 'src/runner/plugin/environment.dart';
-// import 'src/runner/reporter/expanded.dart';
-// import 'src/runner/runner_suite.dart';
-// import 'src/utils.dart';
 
 export 'package:matcher/matcher.dart';
 
@@ -39,47 +30,9 @@ export 'src/frontend/throws_matchers.dart';
 export 'src/frontend/timeout.dart';
 export 'src/frontend/utils.dart';
 
-/// The global declarer.
-///
-/// This is used if a test file is run directly, rather than through the runner.
-Declarer _globalDeclarer;
-
-/// Gets the declarer for the current scope.
-///
-/// When using the runner, this returns the [Zone]-scoped declarer that's set by
-/// [IsolateListener] or [IframeListener]. If the test file is run directly,
-/// this returns [_globalDeclarer] (and sets it up on the first call).
-Declarer get _declarer {
-  var declarer = Declarer.current;
-  if (declarer != null) return declarer;
-  if (_globalDeclarer != null) return _globalDeclarer;
-
-  // Since there's no Zone-scoped declarer, the test file is being run directly.
-  // In order to run the tests, we set up our own Declarer via
-  // [_globalDeclarer], and schedule a microtask to run the tests once they're
-  // finished being defined.
-  // _globalDeclarer = Declarer();
-  // scheduleMicrotask(() async {
-  //   var suite = RunnerSuite(const PluginEnvironment(), SuiteConfiguration.empty,
-  //       _globalDeclarer.build(), SuitePlatform(Runtime.vm, os: currentOSGuess),
-  //       path: p.prettyUri(Uri.base));
-
-  //   var engine = Engine();
-  //   engine.suiteSink.add(suite);
-  //   engine.suiteSink.close();
-  //   ExpandedReporter.watch(engine,
-  //       color: true, printPath: false, printPlatform: false);
-
-  //   var success = await runZoned(() => Invoker.guard(engine.run),
-  //       zoneValues: {#test.declarer: _globalDeclarer});
-  //   // TODO(nweiz): Set the exit code on the VM when issue 6943 is fixed.
-  //   if (success) return null;
-  //   print('');
-  //   Future.error("Dummy exception to set exit code.");
-  // });
-  // return _globalDeclarer;
-  throw StateError('');
-}
+// test_core does not support running tests directly, so the Declarer should
+// always be on the Zone.
+Declarer get _declarer => Zone.current[#test.declarer] as Declarer;
 
 // TODO(nweiz): This and other top-level functions should throw exceptions if
 // they're called after the declarer has finished declaring.
