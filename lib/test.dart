@@ -128,7 +128,6 @@ void test(description, body(),
     Map<String, dynamic> onPlatform,
     int retry,
     @deprecated bool solo = false}) {
-  if (_globalDeclarer == null)
   _declarer.test(description.toString(), body,
       testOn: testOn,
       timeout: timeout,
